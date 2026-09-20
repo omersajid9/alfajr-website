@@ -2,9 +2,41 @@ import { useState } from 'react';
 import { useReveal } from '../hooks/useReveal';
 import { productLines } from '../data/products';
 
+const WEB3FORMS_KEY = '774939eb-9a3b-413e-bc25-1df61faceb28';
+
 export default function Contact() {
   const ref = useReveal<HTMLElement>();
   const [sent, setSent] = useState(false);
+  const [sending, setSending] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+
+  async function onSubmit(event: React.FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+    setSending(true);
+    setError(null);
+
+    const formData = new FormData(event.currentTarget);
+    formData.append('access_key', WEB3FORMS_KEY);
+    formData.append('subject', 'Alfajr website enquiry');
+    formData.append('from_name', 'Alfajr website');
+
+    try {
+      const response = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        body: formData,
+      });
+      const data = await response.json();
+      if (data.success) {
+        setSent(true);
+      } else {
+        setError('Could not send. Please try again or email sales@alfajr.com.pk.');
+      }
+    } catch {
+      setError('Could not send. Please try again or email sales@alfajr.com.pk.');
+    } finally {
+      setSending(false);
+    }
+  }
 
   return (
     <section id="contact" ref={ref} className="bg-paper text-navy-900">
@@ -49,16 +81,14 @@ export default function Contact() {
               <form
                 className="reveal border border-navy-900/15 bg-white p-8 md:p-12"
                 style={{ ['--reveal-delay' as string]: '250ms' }}
-                onSubmit={(e) => {
-                  e.preventDefault();
-                  setSent(true);
-                }}
+                onSubmit={onSubmit}
               >
                 <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
                   <label className="block">
                     <span className="t-label text-navy-400">Full name</span>
                     <input
                       required
+                      name="name"
                       type="text"
                       placeholder="Muhammad Ahmed"
                       className="mt-3 w-full border-b border-navy-900/25 bg-transparent pb-3 font-body text-base outline-none transition-colors placeholder:text-navy-300 focus:border-navy-700"
@@ -68,6 +98,7 @@ export default function Contact() {
                     <span className="t-label text-navy-400">Company</span>
                     <input
                       required
+                      name="company"
                       type="text"
                       placeholder="Pak Industries (Pvt) Ltd"
                       className="mt-3 w-full border-b border-navy-900/25 bg-transparent pb-3 font-body text-base outline-none transition-colors placeholder:text-navy-300 focus:border-navy-700"
@@ -77,6 +108,7 @@ export default function Contact() {
                     <span className="t-label text-navy-400">Email</span>
                     <input
                       required
+                      name="email"
                       type="email"
                       placeholder="you@company.com.pk"
                       className="mt-3 w-full border-b border-navy-900/25 bg-transparent pb-3 font-body text-base outline-none transition-colors placeholder:text-navy-300 focus:border-navy-700"
@@ -85,6 +117,7 @@ export default function Contact() {
                   <label className="block">
                     <span className="t-label text-navy-400">Phone</span>
                     <input
+                      name="phone"
                       type="tel"
                       placeholder="+92 300 0000000"
                       className="mt-3 w-full border-b border-navy-900/25 bg-transparent pb-3 font-body text-base outline-none transition-colors placeholder:text-navy-300 focus:border-navy-700"
@@ -93,6 +126,7 @@ export default function Contact() {
                   <label className="block md:col-span-2">
                     <span className="t-label text-navy-400">Product line</span>
                     <select
+                      name="product"
                       className="mt-3 w-full border-b border-navy-900/25 bg-transparent pb-3 font-body text-base outline-none transition-colors focus:border-navy-700"
                       defaultValue={productLines[0].business}
                     >
@@ -107,17 +141,22 @@ export default function Contact() {
                   <label className="block md:col-span-2">
                     <span className="t-label text-navy-400">Requirement</span>
                     <textarea
+                      name="message"
                       rows={4}
                       placeholder="e.g. HDPE 5502xx blow moulding grade, 20 MT/month, Faisalabad"
                       className="mt-3 w-full resize-none border-b border-navy-900/25 bg-transparent pb-3 font-body text-base outline-none transition-colors placeholder:text-navy-300 focus:border-navy-700"
                     />
                   </label>
                 </div>
+                {error ? (
+                  <p className="mt-6 text-[14px] leading-relaxed text-red-700">{error}</p>
+                ) : null}
                 <button
                   type="submit"
-                  className="t-label mt-10 w-full bg-navy-700 px-8 py-4 text-white transition-colors duration-300 hover:bg-navy-900 md:w-auto"
+                  disabled={sending}
+                  className="t-label mt-10 w-full bg-navy-700 px-8 py-4 text-white transition-colors duration-300 hover:bg-navy-900 disabled:cursor-wait disabled:opacity-60 md:w-auto"
                 >
-                  Submit enquiry →
+                  {sending ? 'Sending…' : 'Submit enquiry →'}
                 </button>
               </form>
             )}
