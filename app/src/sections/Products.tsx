@@ -4,10 +4,9 @@ import { useReveal } from '../hooks/useReveal';
 
 export default function Products() {
   const ref = useReveal<HTMLElement>();
-  const [activeId, setActiveId] = useState(productLines[0].id);
   const [openProduct, setOpenProduct] = useState<string | null>(productLines[0].products[0].name);
 
-  const active = productLines.find((l) => l.id === activeId)!;
+  const active = productLines[0];
 
   return (
     <section id="products" ref={ref} className="bg-navy-800 text-white">
@@ -15,7 +14,7 @@ export default function Products() {
         {/* Heading */}
         <div className="grid grid-cols-1 gap-10 lg:grid-cols-12">
           <div className="lg:col-span-7">
-            <p className="reveal t-label text-white/40">02 — Product portfolio</p>
+            <p className="reveal t-label text-white/40">02 · Product portfolio</p>
             <h2
               className="reveal t-display mt-6 text-4xl md:text-6xl"
               style={{ ['--reveal-delay' as string]: '100ms' }}
@@ -27,14 +26,14 @@ export default function Products() {
           </div>
           <div className="flex items-end lg:col-span-4 lg:col-start-9">
             <p className="reveal text-[15px] leading-relaxed text-white/55" style={{ ['--reveal-delay' as string]: '200ms' }}>
-            Six dedicated product lines featuring full technical specifications. Complete TDS, SDS, and compliance certificates provided with every shipment.
+            Engine oils and transmission fluids with full technical specifications. Every shipment includes TDS, SDS and compliance certificates.
             </p>
           </div>
         </div>
 
         <div className="mt-16 grid grid-cols-1 gap-12 lg:grid-cols-12">
           {/* Line selector */}
-          <div className="lg:col-span-4">
+          {/* <div className="lg:col-span-4">
             <div className="lg:sticky lg:top-32">
               {productLines.map((line) => {
                 const isActive = line.id === activeId;
@@ -68,10 +67,10 @@ export default function Products() {
               })}
               <p className="mt-6 text-sm italic leading-relaxed text-white/45">{active.tagline}</p>
             </div>
-          </div>
+          </div> */}
 
           {/* Product detail */}
-          <div className="lg:col-span-8" key={active.id}>
+          <div className="lg:col-span-12" key={active.id}>
             <p className="max-w-2xl text-[16px] leading-relaxed text-white/70">{active.description}</p>
 
             <div className="mt-10 border-t border-white/15">
@@ -104,7 +103,7 @@ export default function Products() {
                     >
                       <div className="overflow-hidden">
                         <p className="max-w-2xl text-[15px] leading-relaxed text-white/60">
-                          <span className="t-label mr-2 text-white/40">Range —</span>
+                          <span className="t-label mr-2 text-white/40">Range:</span>
                           {p.range}
                         </p>
 
@@ -137,7 +136,7 @@ export default function Products() {
                         </div>
 
                         <p className="mt-6 text-sm leading-relaxed text-white/55">
-                          <span className="t-label mr-2 text-white/40">Supply form —</span>
+                          <span className="t-label mr-2 text-white/40">Supply form:</span>
                           {p.supply}
                         </p>
                       </div>
@@ -148,7 +147,7 @@ export default function Products() {
             </div>
 
             <p className="mt-6 font-mono text-[11px] uppercase tracking-[0.18em] text-white/35">
-              * Typical values for guidance only; binding specifications are set out in the sales contract.
+              * Typical values for guidance only; the sales contract states the binding specifications.
             </p>
           </div>
         </div>

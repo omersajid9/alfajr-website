@@ -19,7 +19,7 @@ const steps = [
   {
     n: '04',
     title: 'Nationwide delivery',
-    body: 'We deliver by tanker, bagged container and drum nationwide.',
+    body: 'We deliver by tanker, ISO container, IBC and drum nationwide.',
   },
 ];
 
@@ -31,15 +31,14 @@ export default function Logistics() {
       <div className="mx-auto max-w-[1440px] px-5 py-20 md:px-10 md:py-32">
         <div className="grid grid-cols-1 gap-14 lg:grid-cols-12">
           <div className="lg:col-span-5">
-            <p className="reveal t-label text-navy-400">04 — Supply chain</p>
+            <p className="reveal t-label text-navy-400">04 · Supply chain</p>
             <h2 className="reveal t-display mt-6 text-4xl md:text-6xl" style={{ ['--reveal-delay' as string]: '100ms' }}>
               Port gate
               <br />
-              to plant gate
+              to service bay
             </h2>
             <p className="reveal mt-8 t-body-lg text-navy-700" style={{ ['--reveal-delay' as string]: '200ms' }}>
-              Distribution is a promise of continuity. Alfajr owns every step between the INEOS plant and your
-              production line — so a delayed vessel, a missing document or a disputed assay never becomes your problem.
+              Distribution is a promise of continuity. Al Fajr owns every step between the manufacturer's plant and your service bay. A delayed vessel, a missing document or a disputed assay never becomes your problem.
             </p>
           </div>
 

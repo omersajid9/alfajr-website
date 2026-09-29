@@ -3,7 +3,7 @@ import Hero from '../sections/Hero';
 import Marquee from '../sections/Marquee';
 import Values from '../sections/Values';
 import Products from '../sections/Products';
-import Industries from '../sections/Industries';
+import Markets from '../sections/Markets';
 import Logistics from '../sections/Logistics';
 import Contact from '../sections/Contact';
 import Footer from '../sections/Footer';
@@ -16,7 +16,7 @@ export default function Home() {
       <Marquee />
       <Values />
       <Products />
-      <Industries />
+      <Markets />
       <Logistics />
       <Contact />
       <Footer />

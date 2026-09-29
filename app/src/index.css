@@ -42,7 +42,7 @@
 }
 
 @layer utilities {
-  /* ————— Type system ————— */
+  /* Type system */
   .t-display {
     @apply font-display font-semibold uppercase leading-[0.95] tracking-[-0.02em];
     font-stretch: 110%;
@@ -54,7 +54,7 @@
     @apply font-body text-[17px] md:text-[19px] leading-[1.7];
   }
 
-  /* ————— Hairlines ————— */
+  /* Hairlines */
   .hairline-t {
     border-top: 1px solid rgba(16, 30, 76, 0.16);
   }
@@ -65,7 +65,7 @@
     border-top: 1px solid rgba(255, 255, 255, 0.14);
   }
 
-  /* ————— Reveal on scroll ————— */
+  /* Reveal on scroll */
   .reveal {
     opacity: 0;
     transform: translateY(28px);
@@ -80,7 +80,7 @@
     transform: translateY(0);
   }
 
-  /* ————— Marquee ————— */
+  /* Marquee */
   @keyframes marquee-x {
     from {
       transform: translateX(0);
@@ -97,7 +97,7 @@
     animation-play-state: paused;
   }
 
-  /* ————— Hero grid texture ————— */
+  /* Hero grid texture */
   .blueprint-grid {
     background-image:
       linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
@@ -111,7 +111,7 @@
     background-size: 56px 56px;
   }
 
-  /* ————— Underline link ————— */
+  /* Underline link */
   .link-line {
     position: relative;
   }
@@ -132,7 +132,7 @@
     transform-origin: left;
   }
 
-  /* ————— Spec table row hover ————— */
+  /* Spec table row hover */
   .spec-row {
     transition: background-color 0.25s ease;
   }
@@ -140,7 +140,7 @@
     background-color: rgba(16, 30, 76, 0.035);
   }
 
-  /* ————— Number tick ————— */
+  /* Number tick */
   .tnum {
     font-variant-numeric: tabular-nums;
   }

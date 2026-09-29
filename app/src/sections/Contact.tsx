@@ -17,8 +17,8 @@ export default function Contact() {
 
     const formData = new FormData(event.currentTarget);
     formData.append('access_key', WEB3FORMS_KEY);
-    formData.append('subject', 'Alfajr website enquiry');
-    formData.append('from_name', 'Alfajr website');
+    formData.append('subject', 'Al Fajr website enquiry');
+    formData.append('from_name', 'Al Fajr website');
 
     try {
       const response = await fetch('https://api.web3forms.com/submit', {
@@ -29,10 +29,10 @@ export default function Contact() {
       if (data.success) {
         setSent(true);
       } else {
-        setError('Could not send. Please try again or email sales@alfajr.com.pk.');
+        setError('Could not send. Please try again or email sajid.combine@gmail.com.');
       }
     } catch {
-      setError('Could not send. Please try again or email sales@alfajr.com.pk.');
+      setError('Could not send. Please try again or email sajid.combine@gmail.com.');
     } finally {
       setSending(false);
     }
@@ -43,22 +43,22 @@ export default function Contact() {
       <div className="mx-auto max-w-[1440px] px-5 py-20 md:px-10 md:py-32">
         <div className="grid grid-cols-1 gap-16 lg:grid-cols-12">
           <div className="lg:col-span-5">
-            <p className="reveal t-label text-navy-400">05 — Contact</p>
+            <p className="reveal t-label text-navy-400">05 · Contact</p>
             <h2 className="reveal t-display mt-6 text-4xl md:text-6xl" style={{ ['--reveal-delay' as string]: '100ms' }}>
               Start the
               <br />
               conversation
             </h2>
             <p className="reveal mt-8 max-w-md text-[15px] leading-relaxed text-navy-500" style={{ ['--reveal-delay' as string]: '200ms' }}>
-              Send a grade, a monthly volume and a delivery city — our commercial desk replies with availability,
+              Send a grade, a monthly volume and a delivery city. Our commercial desk replies with availability,
               pricing and lead time, typically within one working day.
             </p>
 
             <div className="mt-12 space-y-8">
               {[
-                ['Head office', 'Lahore 54000, Pakistan'],
-                ['Commercial desk', 'sales@alfajr.com.pk · +92 321 84 32850'],
-                ['Technical support', 'tech@alfajr.com.pk · +92 321 84 32850'],
+                ['Head office', 'Plot No. 4, Oil Lane, Badami Bagh, Lahore'],
+                ['Mobile', '+92 300 8432850'],
+                ['Email', 'sajid.combine@gmail.com'],
               ].map(([label, value], i) => (
                 <div key={label} className="reveal hairline-t pt-6" style={{ ['--reveal-delay' as string]: `${280 + i * 90}ms` }}>
                   <p className="t-label text-navy-400">{label}</p>
@@ -74,7 +74,7 @@ export default function Contact() {
                 <p className="t-label text-navy-400">Enquiry received</p>
                 <h3 className="t-display mt-4 text-3xl md:text-4xl">Thank you.</h3>
                 <p className="mt-4 max-w-sm text-[15px] leading-relaxed text-navy-500">
-                  Your enquiry has been logged with our commercial desk. Expect a response within one working day.
+                  We have logged your enquiry with our commercial desk. Expect a response within one working day.
                 </p>
               </div>
             ) : (
@@ -128,11 +128,11 @@ export default function Contact() {
                     <select
                       name="product"
                       className="mt-3 w-full border-b border-navy-900/25 bg-transparent pb-3 font-body text-base outline-none transition-colors focus:border-navy-700"
-                      defaultValue={productLines[0].business}
+                      defaultValue={productLines[0].products[0].name}
                     >
-                      {productLines.map((l) => (
-                        <option key={l.id} value={l.business}>
-                          {l.business}
+                      {productLines[0].products.map((p) => (
+                        <option key={p.name} value={p.name}>
+                          {p.name}
                         </option>
                       ))}
                       <option value="other">Other / multiple</option>
@@ -143,7 +143,7 @@ export default function Contact() {
                     <textarea
                       name="message"
                       rows={4}
-                      placeholder="e.g. HDPE 5502xx blow moulding grade, 20 MT/month, Faisalabad"
+                      placeholder="e.g. 5W-30 API SP, 1,000 L/month, Lahore"
                       className="mt-3 w-full resize-none border-b border-navy-900/25 bg-transparent pb-3 font-body text-base outline-none transition-colors placeholder:text-navy-300 focus:border-navy-700"
                     />
                   </label>

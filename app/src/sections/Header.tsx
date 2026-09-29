@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 const links = [
   { label: 'Values', href: '#values' },
   { label: 'Products', href: '#products' },
-  { label: 'Industries', href: '#industries' },
+  { label: 'Markets', href: '#markets' },
   { label: 'Logistics', href: '#logistics' },
   { label: 'Contact', href: '#contact' },
 ];
@@ -28,7 +28,7 @@ export default function Header() {
       {/* Ticker bar */}
       <div className="bg-navy-900 text-white/80">
         <div className="mx-auto flex max-w-[1440px] items-center justify-between px-5 py-1.5 md:px-10">
-          <p className="t-label">Authorised INEOS distribution partner — Pakistan</p>
+          <p className="t-label">ENEOS Business Partner, Pakistan</p>
           <p className="t-label hidden md:block">Karachi · Lahore · Islamabad</p>
         </div>
       </div>
@@ -40,9 +40,9 @@ export default function Header() {
       >
         <a href="#top" className="flex items-baseline gap-2">
           <span className={`font-display text-2xl font-bold uppercase tracking-tight ${scrolled ? 'text-navy-900' : 'text-white'}`}>
-            Alfajr
+            Al Fajr
           </span>
-          {/* <span className={`t-label ${scrolled ? 'text-navy-500' : 'text-white/60'}`}>× INEOS</span> */}
+          {/* <span className={`t-label ${scrolled ? 'text-navy-500' : 'text-white/60'}`}>× ENEOS</span> */}
         </a>
 
         <nav className="hidden items-center gap-8 lg:flex">

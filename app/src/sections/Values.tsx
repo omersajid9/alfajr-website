@@ -5,7 +5,7 @@ const pillars = [
   {
     index: 'A',
     title: 'QUALITY',
-    body: 'Every lot checked against its certificate of analysis before it leaves our warehouse, with full traceability back to the manufacturer.',
+    body: 'We check every lot against its certificate of analysis before it leaves our warehouse, with full traceability back to the manufacturer.',
   },
   {
     index: 'B',
@@ -15,7 +15,7 @@ const pillars = [
   {
     index: 'C',
     title: 'SAFETY',
-    body: 'Storage, handling, and transport built around the hazards these materials actually carry, following strict protocols.',
+    body: 'Storage, handling and transport follow strict protocols built around the hazards these materials actually carry.',
   },
 ];
 
@@ -47,7 +47,7 @@ export default function Values() {
       <div className="mx-auto max-w-[1440px] px-5 py-20 md:px-10 md:py-32">
         <div className="grid grid-cols-1 gap-14 lg:grid-cols-12">
           <div className="lg:col-span-5">
-            <p className="reveal t-label text-navy-400">01 — OUR VALUES</p>
+            <p className="reveal t-label text-navy-400">01 · OUR VALUES</p>
             <h2
               className="reveal t-display mt-6 text-4xl md:text-6xl"
               style={{ ['--reveal-delay' as string]: '100ms' }}
@@ -59,16 +59,16 @@ export default function Values() {
           </div>
           <div className="lg:col-span-6 lg:col-start-7">
             <p className="reveal t-body-lg text-navy-700" style={{ ['--reveal-delay' as string]: '180ms' }}>
-              Petrochemicals don't forgive shortcuts. A drum of the wrong grade, a certificate that doesn't match
-              the lot, a delivery that slips without warning — any of these costs a customer real money on their
-              production line. Alfajr was built around not letting that happen.
+            Founded in 2000, Al Fajr has built its business on three principles that don't change: quality, integrity and safety.
+            We check every lot against its certificate of analysis before it leaves our warehouse. We quote a price, a grade and
+            a delivery date, and we deliver exactly that.
             </p>
             <p
               className="reveal mt-6 t-body-lg text-navy-700"
               style={{ ['--reveal-delay' as string]: '260ms' }}
             >
-              That's not a slogan for a wall. It's three commitments that shape how every order is handled, from
-              the first phone call to the last invoice — regardless of whether it's a single drum or a vessel-load.
+              That discipline doesn't change with order size. A 4-litre can gets the same certificate, the same lead time and the
+              same accountability as a full tanker-load, from the first phone call to the last invoice.
             </p>
           </div>
         </div>
