@@ -58,11 +58,12 @@ export default function Contact() {
               {[
                 ['Head office', 'Plot No. 4, Oil Lane, Badami Bagh, Lahore'],
                 ['Mobile', '+92 300 8432850'],
-                ['Email', 'sajid.combine@gmail.com'],
-              ].map(([label, value], i) => (
+                ['Email', 'sajid@alfajrpk.com', 'sajid.combine@gmail.com'],
+              ].map(([label, value1, value2], i) => (
                 <div key={label} className="reveal hairline-t pt-6" style={{ ['--reveal-delay' as string]: `${280 + i * 90}ms` }}>
                   <p className="t-label text-navy-400">{label}</p>
-                  <p className="mt-3 font-display text-lg font-medium leading-snug md:text-xl">{value}</p>
+                  <p className="mt-3 font-display text-lg font-medium leading-snug md:text-xl">{value1}</p>
+		{value2 && <p className="mt-3 font-display text-lg font-medium leading-snug md:text-xl">{value2}</p>}
                 </div>
               ))}
             </div>
